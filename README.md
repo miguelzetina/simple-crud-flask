@@ -39,3 +39,54 @@ GRANT ALL PRIVILEGES ON DATABASE simple_crud_flask TO simple_flask;
         ```bash
         pipenv run Flask run
         ```
+
+### cURL example requests
+
+1. Create a product
+
+    ```bash
+    curl -X POST \
+    http://127.0.0.1:5000/products \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "title": "Jamón serrano",
+        "productDescription": "Jamón serrano Fud 290g",
+        "productBrand": "Fud",
+        "price": 48.5
+    }'
+    ```
+
+2. Get products list
+
+    ```bash
+    curl -X GET \
+    http://127.0.0.1:5000/products \
+    -H 'Content-Type: application/json'
+    ```
+
+3. Retrieve a product
+
+    ```bash
+    curl -X GET \
+    http://127.0.0.1:5000/products/1 \
+    -H 'Content-Type: application/json'
+    ```
+
+4. Update a product
+
+    ```bash
+    curl -X PUT \
+    http://127.0.0.1:5000/products/1 \
+    -H 'Content-Type: application/json' \
+    -d '{
+        "price": 53
+    }'
+    ```
+
+5. Delete a product
+
+    ```bash
+    curl -X DELETE \
+    http://127.0.0.1:5000/products/1 \
+    -H 'Content-Type: application/json'
+    ```
